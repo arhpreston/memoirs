@@ -1,0 +1,54 @@
+%\documentclass[12pt, a4paper, twoside]{book} % http://ubuntuforums.org/showthread.php?t=1302999
+\documentclass[12pt, letterpaper, twoside]{book}
+% http://tex.stackexchange.com/questions/16569/latex-document-to-epub-or-mobi-ebook-formats-with-mathematical-formulas
+%\documentclass[ebook,oneside,openany]{memoir}
+
+%http://en.wikibooks.org/wiki/LaTeX/Page_Layout
+%http://tex.stackexchange.com/questions/86111/pocket-book-size-for-novel-10-8-x-17-5-cm
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+
+% http://sureshemre.wordpress.com/2010/12/04/latex-book-template-with-fancy-header/
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% http://nw360.blogspot.co.nz/2006/11/latex-headheight-is-too-small.html
+\setlength{\headheight}{14.5pt}
+
+% http://www.karinvandenberg.nl/en/node/22
+\setcounter{tocdepth}{0}
+
+\begin{document}
+
+\frontmatter % page numbers => i, ii, ...
+    \title{A Life's Journey Revisted}
+    \author{Madge Bray}
+    \maketitle
+
+    % Front image
+    \begin{figure}
+      \includegraphics[width=\textwidth]{photos/madge-by-sea.jpg}
+      \label{madge-by-sea}
+    \end{figure}
+
+    \tableofcontents
+
+    \input{timeline}
+    \input{foreword}
+
+
+\mainmatter  % page numbers => 1, 2, ...
+    \input{main}
+
+
+\appendix
+    \input{birthday}
+    \input{israel}
+    %\input{pics}
+
+\backmatter
+
+\end{document}
