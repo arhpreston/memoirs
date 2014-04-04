@@ -1,5 +1,6 @@
-%\documentclass[12pt, a4paper, twoside]{book} % http://ubuntuforums.org/showthread.php?t=1302999
-\documentclass[12pt, letterpaper, twoside]{book}
+\documentclass[12pt, a4paper, twoside]{book} % http://ubuntuforums.org/showthread.php?t=1302999
+%\documentclass[12pt, a4paper, twoside]{memoir}
+%\documentclass[12pt, letterpaper, twoside]{book}
 % http://tex.stackexchange.com/questions/16569/latex-document-to-epub-or-mobi-ebook-formats-with-mathematical-formulas
 %\documentclass[ebook,oneside,openany]{memoir}
 
@@ -21,6 +22,12 @@
 % http://www.karinvandenberg.nl/en/node/22
 \setcounter{tocdepth}{0}
 
+%\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+%\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+%\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter { | } }{0pt}{\Huge\bfseries}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter {.} \hspace{1mm}}{0pt}{\Huge\bfseries}
+
 \begin{document}
 
 \frontmatter % page numbers => i, ii, ...
@@ -28,14 +35,31 @@
     \author{Madge Bray}
     \maketitle
 
+    % Blank page so image is on right page
+    \clearpage
+    \thispagestyle{empty} % no header bar or page number
+    \phantom{a}
+    %\vfill
+    %\centering[done]
+    %\vfill
+    \clearpage
+
     % Front image
+    \thispagestyle{empty}
     \begin{figure}
       \includegraphics[width=\textwidth]{photos/madge-by-sea.jpg}
       \caption{Madge holidaying in Devon (August 1959).}
       \label{madge-by-sea}
     \end{figure}
 
+    \clearpage
+    \thispagestyle{empty}
+
     \tableofcontents
+    \setcounter{page}{1}
+    \clearpage
+    \thispagestyle{empty}
+
 
     \input{timeline}
     \input{foreword}
